@@ -1,8 +1,3 @@
-#ifndef __LRU_H__
-#define __LRU_H__
-
-#include "caches.hpp"
-
 namespace Caches
 {
 
@@ -69,4 +64,3 @@ struct LRU_cache_t
 
   };
 }
-#endif

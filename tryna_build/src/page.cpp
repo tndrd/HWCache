@@ -1,12 +1,4 @@
-#pragma once
-
-struct page_t
-{
-  int id_;
-
-  page_t (int id): id_(id) {}
-  page_t ():       id_(-1) {}
-};
+#include "../include/page.h"
 
 page_t slow_get_page(int id) // Maybe the return value should be page_t&, but idk how to properly implement dynamically created structs (also refs to stack values shouldn't be returned) 
 {

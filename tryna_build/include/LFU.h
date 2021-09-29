@@ -1,8 +1,3 @@
-#ifndef __LFU_H__
-#define __LFU_H__
-
-#include "caches.hpp"
-
 namespace Caches
 {
 
@@ -93,4 +88,3 @@ struct LFU_cache_t
 
 };
 }
-#endif

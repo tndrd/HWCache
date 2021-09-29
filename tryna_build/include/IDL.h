@@ -1,3 +1,5 @@
+#include "caches.h"
+
 namespace Caches
 { 
   template <typename T, typename KeyT = int>
@@ -104,32 +106,5 @@ namespace Caches
     }
 
   };
-
-  template<>
-  size_t count_hits<Ideal_cache_t, page_t, int, page_t (&)(int)>(page_t (&get_function)(int))
-  {
-      size_t hits = 0;
-      size_t nelements_in;
-      size_t cache_size;
-
-      std::cin >> cache_size >> nelements_in;
-      assert(std::cin.good());
-      
-      Ideal_cache_t<page_t> cache {cache_size};
-      std::vector<int> datastream;
-      
-      for (int i = 0; i < nelements_in; ++i)
-      {
-        int key;
-        std::cin >> key;
-        assert(std::cin.good());
-        datastream.push_back(key);
-      }
-      
-      hits = cache.predict_hits(datastream, get_function);
-
-      return hits;
-  }
-
 
 }

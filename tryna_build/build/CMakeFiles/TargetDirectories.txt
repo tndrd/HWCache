@@ -1,0 +1,8 @@
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/edit_cache.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/rebuild_cache.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/e2e.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/hit_count.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/page_t.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/IDL.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/LRU.dir
+/home/tndnrd/Projects/ILab-C++/01-Cache/tryna_build/build/CMakeFiles/LFU.dir

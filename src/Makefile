@@ -5,3 +5,6 @@ lfu:
 
 ideal:
 	g++ ideal.cpp -o run
+
+e2e:
+	g++ e2e.cpp -o run
