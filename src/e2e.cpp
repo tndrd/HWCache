@@ -1,8 +1,6 @@
-#include "IDL.hpp"
-#include "LFU.hpp"
-#include "LRU.hpp"
-#include "page.hpp"
 #include <cstring>
+#include <iostream>
+#include "../include/hit_count.h"
 
 const size_t MAX_PARAM_LENGTH = 5;
 
