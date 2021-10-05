@@ -42,31 +42,32 @@ struct LFU_cache_t
 
   LFU_cache_t(const size_t sz) : sz_(sz) {}
 
+
   template<typename F> bool lookup_update(KeyT key, F slow_get_page)
   {
-      auto hit = hash_.find(key);
-      if (hit == hash_.end())
+    auto hit = hash_.find(key);
+    if (hit == hash_.end())
+    {
+      if (full())
       {
-        if (full())
-        {
-          auto lfu_item = get_lfu_item();
-          hash_.erase(lfu_item->item_.id_);
-          cache_.erase(lfu_item);
-        }
-        
-        cache_.push_front({slow_get_page(key)});
-        hash_[key] = cache_.begin();
-        return false;
+        auto lfu_item = get_lfu_item();
+        hash_.erase(lfu_item->item_.id_);
+        cache_.erase(lfu_item);
       }
+      
+      cache_.push_front({slow_get_page(key)});
+      hash_[key] = cache_.begin();
+      return false;
+    }
 
-      hit->second->frq_ += 1;
-      return true;
+    hit->second->frq_ += 1;
+    return true;
   }
 
 
   bool full() const
   {
-      return cache_.size() == sz_;
+    return cache_.size() == sz_;
   }
 
 
@@ -82,8 +83,8 @@ struct LFU_cache_t
 
   void clear()
   {
-      hash_.clear();
-      cache_.clear();
+    hash_.clear();
+    cache_.clear();
   }
 
 };

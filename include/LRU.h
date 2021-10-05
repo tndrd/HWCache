@@ -35,14 +35,14 @@ struct LRU_cache_t
 
       auto elem_it = hit->second;
       if (elem_it != cache_.begin())
-        cache_.splice(cache_.begin(), cache_, elem_it/*, std::next(eltit)*/);
+        cache_.splice(cache_.begin(), cache_, elem_it);
       return true;
   }
 
 
   bool full() const
   {
-      return cache_.size() == sz_;
+    return cache_.size() == sz_;
   }
 
 
@@ -58,9 +58,9 @@ struct LRU_cache_t
 
   void clear()
   {
-      hash_.clear();
-      cache_.clear();
+    hash_.clear();
+    cache_.clear();
   }
 
-  };
+};
 }

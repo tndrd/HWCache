@@ -28,12 +28,10 @@ namespace Caches
 
     Ideal_cache_t (const size_t sz) : sz_(sz) {}
 
+
     template<typename F>
     int predict_hits(const std::vector<KeyT>& datastream, F get_function)
     {
-      
-      assert(sz_ < datastream.size());
-
       auto databegin = datastream.cbegin(); 
       auto dataend   = datastream.cend();
       
@@ -65,6 +63,7 @@ namespace Caches
       return hits;
     }
 
+
     void print() const 
     {
       for (auto i = cache_.cbegin(); i != cache_.cend(); ++i)
@@ -74,15 +73,17 @@ namespace Caches
       std::cout << std::endl;
     }
 
+
     private:
+
 
     cListIt find_least_useful(cVectorIt data_it, cVectorIt data_end)
     {
       auto cache_begin = cache_.cbegin();
       auto cache_end   = cache_.cend();
 
-      auto luelt_it  = cache_begin; // least useful cache element iterator
-      auto luelt_foi = data_it;  // iterator to its first occurency in datastream (foi)
+      auto luelt_it  = cache_begin; // least useful cache element's iterator
+      auto luelt_foi = data_it;     // iterator to its first occurency in datastream (foi)
 
       for (auto chelt_it = cache_begin; chelt_it != cache_end; chelt_it++)
       {
@@ -92,7 +93,6 @@ namespace Caches
           if (*data_it == chelt_it->item_.id_) break;
         }
 
-        fflush(stdout);
         if (data_it == data_end) return chelt_it; // in this case we've found an element that wont appear anyway, its definetly useless to store it in cache
 
         if (std::distance(luelt_foi, data_it) > 0)
